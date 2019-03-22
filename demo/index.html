@@ -11,7 +11,7 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../proyecto-polymer.html">
-    <link rel="import" href="../ids-input.html">
+    <link rel="import" href="./ids-padre.html">
     <link rel="import" href="../css/button-themes.html">
 
     
@@ -19,34 +19,9 @@
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic proyecto-polymer demo</h3>
-      <demo-snippet>
-        <template>
-          <ids-boton theme-button="button-save" type-action="Guardar">Guardar</ids-boton>
-          <ids-boton theme-button="button-edit" type-action="Editar">Editar</ids-boton>
-          <ids-boton theme-button="button-delete" type-action="Eliminar">Eliminar</ids-boton>
-          
-          <ids-input type-input="tel" text-label="Teléfono" name-input="telefono"></ids-input>
-          <ids-input type-input="date" name-input="fecha"></ids-input><br>
-         <div id="datos"></div>
+      <ids-padre></ids-padre>
 
-         <script>
-          let obj = {};
-          let divDatos = document.getElementById('datos');
-          document.addEventListener('eventInput', (e) =>{
-            obj[e.detail.name] = e.detail.value;
-
-            //document.querySelector('#datos').textContent = JSON.stringify(obj);
-            console.log(obj);
-            let valor = JSON.stringify(obj);
-            let parrafoDatos = document.createElement('p');
-            parrafoDatos.innerHTML=valor;
-            divDatos.appendChild(parrafoDatos);
-            
-          })
-
-         </script>
-        </template>
-      </demo-snippet>
+      
     </div>
   </body>
 </html>

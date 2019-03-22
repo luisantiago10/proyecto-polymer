@@ -1,0 +1,46 @@
+<link rel="import" href="../../polymer/polymer-element.html">
+<link rel="import" href="../ids-input.html">
+<dom-module id="ids-padre">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+    </style>
+    [[valuePadre]]
+    <label> [[textLabel]]
+      <ids-input value="{{valuePadre}}"></ids-input>
+    
+    </label>
+  </template>
+
+  <script>
+    /**
+     * `proyecto-polymer`
+     * Proyecto Polymer 1
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class idsPadre extends Polymer.Element {
+      static get is() { return 'ids-padre'; }
+      static get properties() {
+        return {
+         
+          valuePadre:{
+            type: String,
+            value: ''
+
+          }
+        };
+      }
+      
+   
+
+    }
+
+    window.customElements.define(idsPadre.is, idsPadre);
+  </script>
+</dom-module>
