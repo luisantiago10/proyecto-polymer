@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Proyecto-Polymer</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../proyecto-polymer.html">
+    <link rel="import" href="../ids-input.html">
+    <link rel="import" href="../css/button-themes.html">
+
+    
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic proyecto-polymer demo</h3>
+      <demo-snippet>
+        <template>
+          <ids-boton theme-button="button-save" type-action="Guardar">Guardar</ids-boton>
+          <ids-boton theme-button="button-edit" type-action="Editar">Editar</ids-boton>
+          <ids-boton theme-button="button-delete" type-action="Eliminar">Eliminar</ids-boton>
+          
+          <ids-input type-input="tel" text-label="Teléfono" name-input="telefono"></ids-input>
+          <ids-input type-input="date" name-input="fecha"></ids-input><br>
+         <div id="datos"></div>
+
+         <script>
+          let obj = {};
+          let divDatos = document.getElementById('datos');
+          document.addEventListener('eventInput', (e) =>{
+            obj[e.detail.name] = e.detail.value;
+
+            //document.querySelector('#datos').textContent = JSON.stringify(obj);
+            console.log(obj);
+            let valor = JSON.stringify(obj);
+            let parrafoDatos = document.createElement('p');
+            parrafoDatos.innerHTML=valor;
+            divDatos.appendChild(parrafoDatos);
+            
+          })
+
+         </script>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

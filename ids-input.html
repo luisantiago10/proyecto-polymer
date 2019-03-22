@@ -1,0 +1,69 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="ids-input">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+    </style>
+
+    <label> [[textLabel]]
+    <input type="[[typeInput]]" on-change="handlerInputChange" name="[[nameInput]]">
+    </label>
+  </template>
+
+  <script>
+    /**
+     * `proyecto-polymer`
+     * Proyecto Polymer 1
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class idsInput extends Polymer.Element {
+      static get is() { return 'ids-input'; }
+      static get properties() {
+        return {
+         
+          typeInput:{
+            type: String,
+            value: 'text'
+
+          },
+          textLabel:{
+            type: String,
+            value:'my Label'
+          },
+          nameInput:{
+            type:String,
+            value:'miInput'
+          }
+        };
+      }
+      
+    constructor(){
+      super();
+    }
+    ready(){
+      super.ready();
+
+    }
+
+    handlerInputChange (e) {
+       console.log(e);
+       let inputValue= e.path[0];
+       let typeInput= new CustomEvent('eventInput', {detail: {name:inputValue.name, value: inputValue.value}, bubbles:true, composed:true});
+       this.dispatchEvent(typeInput);
+       //console.log(typeInput);
+       //console.log(typeInput.detail.value);
+
+    }
+
+    }
+
+    window.customElements.define(idsInput.is, idsInput);
+  </script>
+</dom-module>
